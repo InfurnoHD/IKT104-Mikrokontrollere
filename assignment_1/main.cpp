@@ -10,7 +10,7 @@ DigitalOut led2(PC_5);
 
 BufferedSerial pc(USBTX, USBRX, 115200);
 
-//
+
 int main()
 {
 pc.set_baud(115200);
