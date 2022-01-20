@@ -8,8 +8,6 @@ BufferedSerial serial_port(USBTX, USBRX, 115200);
 int main(){
     char buf[32] = {0};
 
-    printf("hei");
-
     while (true)
     {
         if (int num = serial_port.read(buf, sizeof(buf))) {
