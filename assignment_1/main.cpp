@@ -1,5 +1,4 @@
 #include "mbed.h"
-#include <cstdio>
 
 DigitalOut led(PC_5);
 
