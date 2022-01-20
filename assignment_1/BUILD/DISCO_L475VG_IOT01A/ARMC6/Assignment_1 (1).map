@@ -6,9 +6,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003c90, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003c74, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003c7c, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00003c60, Max: 0x00100000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -185,74 +185,74 @@ Memory Map of the image
     0x08002860   0x00000078   Code   RO         1921    .text.handle_error  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
     0x080028d8   0x000000a8   Code   RO         8576    .text.init_32bit_timer  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
     0x08002980   0x00000090   Code   RO         8443    .text.init_uart     BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
-    0x08002a10   0x00000038   Code   RO            5    .text.main          BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
-    0x08002a48   0x00000028   Code   RO         2258    .text.mbed_copy_nvic  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
-    0x08002a70   0x00000060   Code   RO         1895    .text.mbed_die      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x08002ad0   0x00000068   Code   RO         1941    .text.mbed_error    BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x08002b38   0x00000068   Code   RO         1929    .text.mbed_error_initialize  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x08002ba0   0x00000018   Code   RO         1897    .text.mbed_error_printf  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x08002bb8   0x0000004c   Code   RO         1901    .text.mbed_error_puts  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x08002c04   0x00000034   Code   RO         1899    .text.mbed_error_vprintf  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x08002c38   0x000000f4   Code   RO         1772    .text.mbed_fault_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x08002d2c   0x00000030   Code   RO         1923    .text.mbed_halt_system  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x08002d5c   0x00000012   Code   RO         2260    .text.mbed_init     BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
-    0x08002d6e   0x000002a6   Code   RO         2440    .text.mbed_minimal_formatted_string  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
-    0x08003014   0x0000012c   Code   RO         2444    .text.mbed_minimal_formatted_string_integer  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
-    0x08003140   0x0000003c   Code   RO         2446    .text.mbed_minimal_putchar  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
-    0x0800317c   0x0000003c   Code   RO         8316    .text.mbed_sdk_init  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/mbed_overrides.o
-    0x080031b8   0x0000001e   Code   RO          486    .text.mbed_tiny_compute_crc32  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/drivers/source/MbedCRC.o
-    0x080031d6   0x00000024   Code   RO         2442    .text.parse_string_to_integer  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
-    0x080031fa   0x00000002   PAD
-    0x080031fc   0x000000f4   Code   RO         8322    .text.pin_function  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
-    0x080032f0   0x00000078   Code   RO         8326    .text.pin_mode      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
-    0x08003368   0x0000015c   Code   RO         1774    .text.print_context_info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x080034c4   0x0000002c   Code   RO         2112    .text.read          BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x080034f0   0x000000ca   Code   RO         1227    .text.schedule_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
-    0x080035ba   0x00000002   PAD
-    0x080035bc   0x0000007c   Code   RO         8449    .text.serial_baud   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
-    0x08003638   0x00000068   Code   RO         7899    .text.serial_getc   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
-    0x080036a0   0x00000128   Code   RO         8439    .text.serial_init_direct  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
-    0x080037c8   0x00000024   Code   RO         7901    .text.serial_putc   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
-    0x080037ec   0x00000020   Code   RO         8461    .text.serial_readable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
-    0x0800380c   0x00000018   Code   RO         8463    .text.serial_writable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
-    0x08003824   0x0000003a   Code   RO         8324    .text.stm_pin_PullConfig  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
-    0x0800385e   0x00000004   Code   RO         1943    .text.system_reset  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x08003862   0x0000005e   Code   RO         1223    .text.ticker_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
-    0x080038c0   0x00000024   Code   RO         8574    .text.timer_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x080038e4   0x0000007c   Code   RO         1225    .text.update_present_time  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
-    0x08003960   0x0000000c   Code   RO         8588    .text.us_ticker_clear_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x0800396c   0x00000010   Code   RO         8586    .text.us_ticker_disable_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x0800397c   0x0000001c   Code   RO         8584    .text.us_ticker_fire_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x08003998   0x00000008   Code   RO         8572    .text.us_ticker_get_info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x080039a0   0x00000014   Code   RO         8578    .text.us_ticker_init  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x080039b4   0x00000014   Code   RO         1263    .text.us_ticker_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
-    0x080039c8   0x0000000c   Code   RO         8580    .text.us_ticker_read  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x080039d4   0x0000001c   Code   RO         8582    .text.us_ticker_set_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x080039f0   0x00000036   Code   RO         2100    .text.write         BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x08003a26   0x00000002   PAD
-    0x08003a28   0x00000008   Code   RO         8747    i.__aeabi_errno_addr  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(errno.o)
-    0x08003a30   0x0000000e   Code   RO         8907    i.__scatterload_copy  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
-    0x08003a3e   0x00000002   Code   RO         8908    i.__scatterload_null  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
-    0x08003a40   0x0000000e   Code   RO         8909    i.__scatterload_zeroinit  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
-    0x08003a4e   0x00000018   Code   RO         8672    i._fflush$full      c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(fflush_f.o)
-    0x08003a66   0x00000040   Data   RO         8903    .constdata          c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(ctype_c.o)
-    0x08003aa6   0x00000002   PAD
-    0x08003aa8   0x00000000   Data   RO         2270    .rodata             BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
-    0x08003aa8   0x00000010   Data   RO         7793    .rodata.AHBPrescTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
-    0x08003ab8   0x00000008   Data   RO         7794    .rodata.APBPrescTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
-    0x08003ac0   0x00000030   Data   RO         7795    .rodata.MSIRangeTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
-    0x08003af0   0x00000018   Data   RO         2212    .rodata._ZZL14do_serial_initvE14console_pinmap  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x08003b08   0x00000010   Data   RO         7075    .rodata.cst16       BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
-    0x08003b18   0x00000040   Data   RO         8328    .rodata.ll_pin_defines  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
-    0x08003b58   0x00000003   Data   RO            9    .rodata.str1.1      BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
-    0x08003b5b   0x000000c8   Data   RO         1778    .rodata.str1.1      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x08003c23   0x00000001   PAD
-    0x08003c24   0x00000008   Data   RO         1267    .rodata.us_data     BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
-    0x08003c2c   0x00000024   Data   RO         1269    .rodata.us_interface  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
-    0x08003c50   0x00000008   Data   RO         8596    .rodata.us_ticker_get_info.info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
-    0x08003c58   0x00000020   Data   RO         8906    Region$$Table       anon$$obj.o
-    0x08003c78   0x00000004   Data   RO           10    .init_array         BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
-    0x08003c7c   0x00000000   Data   RO         8763    .init_array         c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(cpp_init.o)
+    0x08002a10   0x0000001c   Code   RO            5    .text.main          BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
+    0x08002a2c   0x00000028   Code   RO         2258    .text.mbed_copy_nvic  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
+    0x08002a54   0x00000060   Code   RO         1895    .text.mbed_die      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x08002ab4   0x00000068   Code   RO         1941    .text.mbed_error    BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x08002b1c   0x00000068   Code   RO         1929    .text.mbed_error_initialize  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x08002b84   0x00000018   Code   RO         1897    .text.mbed_error_printf  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x08002b9c   0x0000004c   Code   RO         1901    .text.mbed_error_puts  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x08002be8   0x00000034   Code   RO         1899    .text.mbed_error_vprintf  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x08002c1c   0x000000f4   Code   RO         1772    .text.mbed_fault_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x08002d10   0x00000030   Code   RO         1923    .text.mbed_halt_system  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x08002d40   0x00000012   Code   RO         2260    .text.mbed_init     BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
+    0x08002d52   0x000002a6   Code   RO         2440    .text.mbed_minimal_formatted_string  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
+    0x08002ff8   0x0000012c   Code   RO         2444    .text.mbed_minimal_formatted_string_integer  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
+    0x08003124   0x0000003c   Code   RO         2446    .text.mbed_minimal_putchar  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
+    0x08003160   0x0000003c   Code   RO         8316    .text.mbed_sdk_init  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/mbed_overrides.o
+    0x0800319c   0x0000001e   Code   RO          486    .text.mbed_tiny_compute_crc32  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/drivers/source/MbedCRC.o
+    0x080031ba   0x00000024   Code   RO         2442    .text.parse_string_to_integer  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/minimal-printf/mbed_printf_implementation.o
+    0x080031de   0x00000002   PAD
+    0x080031e0   0x000000f4   Code   RO         8322    .text.pin_function  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
+    0x080032d4   0x00000078   Code   RO         8326    .text.pin_mode      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
+    0x0800334c   0x0000015c   Code   RO         1774    .text.print_context_info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x080034a8   0x0000002c   Code   RO         2112    .text.read          BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x080034d4   0x000000ca   Code   RO         1227    .text.schedule_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
+    0x0800359e   0x00000002   PAD
+    0x080035a0   0x0000007c   Code   RO         8449    .text.serial_baud   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
+    0x0800361c   0x00000068   Code   RO         7899    .text.serial_getc   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
+    0x08003684   0x00000128   Code   RO         8439    .text.serial_init_direct  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
+    0x080037ac   0x00000024   Code   RO         7901    .text.serial_putc   BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/serial_device.o
+    0x080037d0   0x00000020   Code   RO         8461    .text.serial_readable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
+    0x080037f0   0x00000018   Code   RO         8463    .text.serial_writable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/serial_api.o
+    0x08003808   0x0000003a   Code   RO         8324    .text.stm_pin_PullConfig  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
+    0x08003842   0x00000004   Code   RO         1943    .text.system_reset  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x08003846   0x0000005e   Code   RO         1223    .text.ticker_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
+    0x080038a4   0x00000024   Code   RO         8574    .text.timer_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x080038c8   0x0000007c   Code   RO         1225    .text.update_present_time  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_ticker_api.o
+    0x08003944   0x0000000c   Code   RO         8588    .text.us_ticker_clear_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x08003950   0x00000010   Code   RO         8586    .text.us_ticker_disable_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x08003960   0x0000001c   Code   RO         8584    .text.us_ticker_fire_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x0800397c   0x00000008   Code   RO         8572    .text.us_ticker_get_info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x08003984   0x00000014   Code   RO         8578    .text.us_ticker_init  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x08003998   0x00000014   Code   RO         1263    .text.us_ticker_irq_handler  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
+    0x080039ac   0x0000000c   Code   RO         8580    .text.us_ticker_read  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x080039b8   0x0000001c   Code   RO         8582    .text.us_ticker_set_interrupt  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x080039d4   0x00000036   Code   RO         2100    .text.write         BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x08003a0a   0x00000002   PAD
+    0x08003a0c   0x00000008   Code   RO         8747    i.__aeabi_errno_addr  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(errno.o)
+    0x08003a14   0x0000000e   Code   RO         8907    i.__scatterload_copy  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
+    0x08003a22   0x00000002   Code   RO         8908    i.__scatterload_null  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
+    0x08003a24   0x0000000e   Code   RO         8909    i.__scatterload_zeroinit  c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(handlers.o)
+    0x08003a32   0x00000018   Code   RO         8672    i._fflush$full      c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(fflush_f.o)
+    0x08003a4a   0x00000040   Data   RO         8903    .constdata          c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(ctype_c.o)
+    0x08003a8a   0x00000002   PAD
+    0x08003a8c   0x00000000   Data   RO         2270    .rodata             BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_sdk_boot.o
+    0x08003a8c   0x00000010   Data   RO         7793    .rodata.AHBPrescTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
+    0x08003a9c   0x00000008   Data   RO         7794    .rodata.APBPrescTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
+    0x08003aa4   0x00000030   Data   RO         7795    .rodata.MSIRangeTable  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/system_stm32l4xx.o
+    0x08003ad4   0x00000018   Data   RO         2212    .rodata._ZZL14do_serial_initvE14console_pinmap  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x08003aec   0x00000010   Data   RO         7075    .rodata.cst16       BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/TARGET_STM32L4/STM32Cube_FW/STM32L4xx_HAL_Driver/stm32l4xx_hal_uart.o
+    0x08003afc   0x00000040   Data   RO         8328    .rodata.ll_pin_defines  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/pinmap.o
+    0x08003b3c   0x00000003   Data   RO            9    .rodata.str1.1      BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
+    0x08003b3f   0x000000c8   Data   RO         1778    .rodata.str1.1      BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x08003c07   0x00000001   PAD
+    0x08003c08   0x00000008   Data   RO         1267    .rodata.us_data     BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
+    0x08003c10   0x00000024   Data   RO         1269    .rodata.us_interface  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/hal/source/mbed_us_ticker_api.o
+    0x08003c34   0x00000008   Data   RO         8596    .rodata.us_ticker_get_info.info  BUILD/DISCO_L475VG_IOT01A/ARMC6/mbed-os/targets/TARGET_STM/us_ticker.o
+    0x08003c3c   0x00000020   Data   RO         8906    Region$$Table       anon$$obj.o
+    0x08003c5c   0x00000004   Data   RO           10    .init_array         BUILD/DISCO_L475VG_IOT01A/ARMC6/main.o
+    0x08003c60   0x00000000   Data   RO         8763    .init_array         c:\Users\oleel\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\mc_w.l(cpp_init.o)
 
 
     Execution Region RW_m_crash_data (Base: 0x10000188, Size: 0x00000100, Max: 0x00000100, ABSOLUTE)
@@ -325,7 +325,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     12660       1112        860         16      99840      18872   Object Totals
+     12632       1108        860         16      99840      18872   Object Totals
          0          0         32          0      98560          0   (incl. Generated)
         22          0          1          0         10          0   (incl. Padding)
       1898         76         66          4         60       1716   Library Totals
@@ -336,15 +336,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14558       1188        926         20      99900      19108   Grand Totals
-     14558       1188        926         20      99900      19108   ELF Image Totals
-     14558       1188        926         20          0          0   ROM Totals
+     14530       1184        926         20      99900      19108   Grand Totals
+     14530       1184        926         20      99900      19108   ELF Image Totals
+     14530       1184        926         20          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                15484 (  15.12kB)
+    Total RO  Size (Code + RO Data)                15456 (  15.09kB)
     Total RW  Size (RW Data + ZI Data)             99920 (  97.58kB)
-    Total ROM Size (Code + RO Data + RW Data)      15504 (  15.14kB)
+    Total ROM Size (Code + RO Data + RW Data)      15476 (  15.11kB)
 
 ==============================================================================
 

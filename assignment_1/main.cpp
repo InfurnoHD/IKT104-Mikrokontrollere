@@ -1,26 +1,22 @@
-/* mbed Microcontroller Library
- * Copyright (c) 2019 ARM Limited
- * SPDX-License-Identifier: Apache-2.0
- */
-
 #include "mbed.h"
 
-DigitalOut led1(LED1);
-DigitalOut led2(PC_5);
+DigitalOut led(PC_5);
 
-BufferedSerial pc(USBTX, USBRX, 115200);
+BufferedSerial serial_port(USBTX, USBRX, 115200);
 
+int main(){
+    char buf[32] = {0};
 
-int main()
-{
-pc.set_baud(115200);
-pc.set_format(8, BufferedSerial::None, 1);
-    int toggle;
-    
-    while (true){
-    scanf("%i", &toggle);
-    printf("%i", toggle);
-    led2.write(toggle);
+    while (true)
+    {
+        if (int num = serial_port.read(buf, sizeof(buf))) {
+            if(strstr(buf, "1")){
+                led = true;
+            }
+            else if(strstr(buf, "0")){
+                led = false;
+            }
+            serial_port.write(buf, num);
+        }
     }
-    
 }
