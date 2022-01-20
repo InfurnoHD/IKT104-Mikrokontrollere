@@ -1,4 +1,5 @@
 #include "mbed.h"
+#include <cstdio>
 
 DigitalOut led(PC_5);
 
@@ -6,6 +7,8 @@ BufferedSerial serial_port(USBTX, USBRX, 115200);
 
 int main(){
     char buf[32] = {0};
+
+    printf("hei");
 
     while (true)
     {
