@@ -4,6 +4,8 @@ DigitalOut led1(PB_1);
 BufferedSerial serial_port(USBTX, USBRX, 115200);
 
 // main() runs in its own thread in the OS
+//samme kode basically som assignment_1
+//var for å teste led og sånt
 int main()
 {
     char buf[32] = {0};
