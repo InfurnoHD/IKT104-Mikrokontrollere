@@ -18,7 +18,6 @@ int main()
             else if(strstr(buf, "0")){
                 led1 = false;
             }
-
         serial_port.write(buf, num);
 
         }
