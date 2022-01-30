@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+.idea
+bin
+cmake-build-*
+obj
+venv
+*.db
+*.pyc
+*.swp
