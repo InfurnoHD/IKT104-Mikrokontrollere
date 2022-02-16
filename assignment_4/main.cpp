@@ -18,8 +18,7 @@ void changeState(bool *var) { *var = !*var; }
 
 void counter() {
 
-  lcd.printf("%.2f",
-             std::chrono::duration<float>{timer.elapsed_time()}.count());
+  lcd.printf("%.2f", std::chrono::duration<float>{timer.elapsed_time()}.count());
   lcd.setCursor(0, 0);
 }
 
