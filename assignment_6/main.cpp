@@ -26,30 +26,35 @@ nsapi_size_or_error_t sendRequest(Socket *socket, const char *request) {
   return 0;
 }
 
-nsapi_size_or_error_t readResponse(Socket *socket, char *buffer, int buffer_length) {
 
-  int remaining_bytes = buffer_length;
-  int received_bytes = 0;
+nsapi_size_or_error_t readResponse(Socket &socket, char *buffer, int buffer_length, char chunks[2000]) {
 
-  while (remaining_bytes > 0) {
+    int remaining_bytes = buffer_length;
+    int received_bytes = 0, counter = 0;
 
-    nsapi_size_or_error_t result = socket->recv(buffer + received_bytes, remaining_bytes);
+    char chunk[100] = {0};
+    nsapi_size_or_error_t result = 1;
 
-    if (result == 0) {
-      break;
+    while (result > 0) 
+    {
+        result = socket.recv(chunk, 100);
+
+        for (int i = 0; i < 100; i++, counter++) 
+        {
+            if (chunk[i] == '\0') 
+            {
+                printf("\n\n");
+                return received_bytes;
+            }
+                printf("%c", chunk[i]);
+                chunks[counter] = chunk[i];
+                chunk[i] = 0;
+        }
+        printf("...");
     }
-    if (result < 0) {
-      return result;
-    }
 
-    
-    
-    received_bytes += result;
-    remaining_bytes -= result;
 
-  }
-        printf("\nReceived %d bytes:\n%.*s\n", received_bytes, strstr(buffer, "\n") - buffer, buffer);
-    return 0;
+  return received_bytes;
 }
 
 int main() {
@@ -118,8 +123,11 @@ int main() {
   }
     static constexpr size_t HTTP_RESPONSE_BUF_SIZE = 100;
     static char response[HTTP_RESPONSE_BUF_SIZE];
+    static char chunks[2000];
 
-    result = readResponse(socket, response, HTTP_RESPONSE_BUF_SIZE);
+    result = readResponse(*socket, response, HTTP_RESPONSE_BUF_SIZE, chunks);
+
+printf("%s", chunks);
     
 
     if (result != 0) {
