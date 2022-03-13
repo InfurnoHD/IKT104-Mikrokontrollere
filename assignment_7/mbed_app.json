@@ -8,8 +8,8 @@
             "platform.minimal-printf-enable-64-bit": false,
             "platform.stdio-minimal-console-only": false,
             "nsapi.default-wifi-security": "WPA_WPA2",
-            "nsapi.default-wifi-ssid": "\"mainman\"",
-            "nsapi.default-wifi-password": "\"oleerkul\"",
+            "nsapi.default-wifi-ssid": "\"Ole\"",
+            "nsapi.default-wifi-password": "\"7585618719\"",
             "rtos.main-thread-stack-size": 16384
         },
         "DISCO_L475VG_IOT01A": {

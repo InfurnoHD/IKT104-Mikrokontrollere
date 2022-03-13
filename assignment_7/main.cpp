@@ -1,74 +1,99 @@
 #include "HTS221Sensor.h"
 #include "HTS221_driver.h"
 #include "mbed.h"
+#include "wifi.h"
+#include <cstdio>
+#include <cstring>
 
 DevI2C i2c(PB_11, PB_10);
 HTS221Sensor sensor(&i2c);
 
+constexpr uint32_t HTTP_REQUEST_BUFFER_SIZE = 400;
+constexpr uint32_t JSON_CONTENT_BUFFER_SIZE = 300;
+constexpr uint32_t HTTP_RESPONSE_BUFFER_SIZE = 400;
 
-void temp() {
-  const char request[] = "POST /api/v1/v7ItFiAuGIlPaYWXEGcA/telemetry HTTP/1.1\r\n"
-                         "Host: 10.245.30.86:9090\r\n"
-                         "Connection: close\r\n"
-                         "Content-Type: application/json"
-                         "Content-Length: 100"
-                         "\r\n";
+nsapi_size_or_error_t sendData(float temp, float hum, Socket *socket,
+                               char *httpRequest, char *jsonContent) {
+
+  nsapi_size_t bytes_to_send = strlen(httpRequest);
+  nsapi_size_or_error_t bytes_sent = 0;
+
+  std::snprintf(jsonContent, JSON_CONTENT_BUFFER_SIZE,
+                "{\"temperature\": %.2f, \"humidity\": %.2f}", temp, hum);
+
+  std::snprintf(httpRequest, JSON_CONTENT_BUFFER_SIZE,
+                "POST /api/v1/dJwwWNFhpTdNy8qjCZUz/telemetry HTTP/1.1\r\n"
+                "Host: 192.168.11.66:9090\r\n"
+                "Connection: keep-alive\r\n"
+                "Content-Type: application/json\r\n"
+                "Content-Length: %u\r\n"
+                "\r\n",
+                strlen(jsonContent));
+
+  strcat(httpRequest, jsonContent);
+
+  printf("\nSending message: \n%s\n\n", httpRequest);
+
+  while (bytes_to_send) {
+
+    bytes_sent = socket->send(httpRequest + bytes_sent, bytes_to_send);
+
+    if (bytes_sent < 0) {
+
+      return bytes_sent;
+    } else {
+      printf("Sent %d bytes\n", bytes_sent);
+    }
+
+    bytes_to_send -= bytes_sent;
+  }
+
+  printf("Complete message sent\n\n");
+  return bytes_to_send;
 }
 
 int main() {
-    
+
+  // Deklarerer variabler
+  nsapi_size_or_error_t result;
+  TCPSocket *socket = new TCPSocket;
   NetworkInterface *network = NetworkInterface::get_default_instance();
 
-  if (!network) {
-    printf("Failed to get network configuration!\n");
-    while (1)
-      ;
-  }
+  static char httpRequest[HTTP_REQUEST_BUFFER_SIZE];
+  static char jsonContent[JSON_CONTENT_BUFFER_SIZE];
 
-  nsapi_size_or_error_t result;
-
-  do {
-    printf("Connecting to the network...\n");
-    result = network->connect();
-
-    if (result != 0) {
-      printf("Failed to connect to the network!\n");
-    }
-  } while (result != 0);
-
-  printf("Connected to the network!\n");
-
-  SocketAddress address;
-  TCPSocket socket;
-
-  socket.open(network);
-
-address.set_ip_address("192.168.48.1");
-address.set_port(9090);
-
-result = socket.connect(address);
-
-  if (result != 0) {
-    printf("Failed to connect to server: %d\n", result);
-    socket.close();
-  } else {
-    printf("Connected to server!\n");
-  }
+  // Kobler til nettverk og server
+  initialConnectWIFI(socket, result, network);
 
   float temp = 0;
   float hum = 0;
 
+  // Initialliserer sensorer
   sensor.init(NULL);
   sensor.enable();
 
+  while (true) {
 
-  while (false) {
+    // Leser data fra sensorer
     sensor.get_humidity(&hum);
-    printf("Humidity: %.2f\n", hum);
 
     sensor.get_temperature(&temp);
-    printf("Temperature: %.2f\n\n", temp);
 
-    ThisThread::sleep_for(1s);
+    // Kaller på funksjon for å sende HTTP POST
+    result = sendData(temp, hum, socket, httpRequest, jsonContent);
+
+    if (result != 0) {
+      printf("Sending HTTP POST failed with error code %d\n", result);
+      socket->close();
+      break;
+    }
+
+    // Lukker socket og kobler til server på ny
+    // Måtte gjøre dette for at ikke brannmuren kappa hode av koblingen etter å
+    // ha sendt et par HTTP POSTer
+    socket->close();
+    reconnectWIFI(socket, result, network);
+
+    ThisThread::sleep_for(3s);
   }
 }
