@@ -5,7 +5,8 @@
 struct Data {
 
   Mutex mutex;
-  Timer timer;
+  Timer timerSeconds;
+  Timer timerMinutes;
   int minutes = 0;
   int seconds = 0;
 };
@@ -14,22 +15,23 @@ void minuteCounter(Data *data) {
 
   while (true) {
     data->mutex.lock();
-    data->minutes =
-        std::chrono::duration_cast<chrono::minutes>(data->timer.elapsed_time())
-            .count();
+    data->minutes = std::chrono::duration_cast<chrono::minutes>(
+                        data->timerMinutes.elapsed_time())
+                        .count();
     data->mutex.unlock();
-    ThisThread::sleep_for(734ms);
+    ThisThread::sleep_for(100ms);
   }
 }
 void secondCounter(Data *data) {
 
   while (true) {
     data->mutex.lock();
-    data->seconds =
-        std::chrono::duration_cast<chrono::seconds>(data->timer.elapsed_time())
-            .count();
+    data->seconds = std::chrono::duration_cast<chrono::seconds>(data->timerSeconds.elapsed_time()).count();
+    if (data->seconds == 60) {
+      data->timerSeconds.reset();
+    }
     data->mutex.unlock();
-    ThisThread::sleep_for(283ms);
+    ThisThread::sleep_for(100ms);
   }
 }
 void printClock(Data *data) {
@@ -37,7 +39,7 @@ void printClock(Data *data) {
     data->mutex.lock();
     printf("%i : %i\n", data->minutes, data->seconds);
     data->mutex.unlock();
-    ThisThread::sleep_for(89ms);
+    ThisThread::sleep_for(500ms);
   }
 }
 int main() {
@@ -48,13 +50,17 @@ int main() {
   Thread secondThread;
   Thread printThread;
 
-  data.timer.start();
+  data.timerSeconds.start();
+  data.timerMinutes.start();
 
   minuteThread.start(callback(minuteCounter, &data));
   secondThread.start(callback(secondCounter, &data));
   printThread.start(callback(printClock, &data));
 
-  /*minuteThread.set_priority(osPriorityAboveNormal);
+  minuteThread.set_priority(osPriorityAboveNormal);
   secondThread.set_priority(osPriorityAboveNormal);
-  printThread.set_priority(osPriorityHigh7);*/
+
+  while (true) {
+    ThisThread::sleep_for(1s);
+  }
 }
