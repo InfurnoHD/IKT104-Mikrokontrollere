@@ -1,76 +1,60 @@
-#include "Callback.h"
 #include "mbed.h"
 #include <chrono>
+#include <iostream>
 
 struct Data {
 
   Mutex mutex;
+  Timer timer;
   int minutes = 0;
   int seconds = 0;
 };
 
-struct secondCounterArgs {
-  Data *data;
-  Timer *timer;
-};
+void minuteCounter(Data *data) {
 
-struct minuteCounterArgs {
-  Data *data;
-  Timer *timer;
-};
-
-void secondCounter(secondCounterArgs *args) {
-  const auto data = args->data;
-  const auto timer = args->timer;
-  data->mutex.lock();
-  int newValueSeconds =
-      std::chrono::duration_cast<chrono::seconds>(timer->elapsed_time())
-          .count();
-  data->seconds = newValueSeconds;
-  data->mutex.unlock();
+  while (true) {
+    data->mutex.lock();
+    data->minutes =
+        std::chrono::duration_cast<chrono::minutes>(data->timer.elapsed_time())
+            .count();
+    data->mutex.unlock();
+    ThisThread::sleep_for(734ms);
+  }
 }
+void secondCounter(Data *data) {
 
-void minuteCounter(minuteCounterArgs *args) {
-  const auto data = args->data;
-  const auto timer = args->timer;
-  data->mutex.lock();
-  int newValueMinutes =
-      std::chrono::duration_cast<chrono::minutes>(timer->elapsed_time())
-          .count();
-  data->minutes = newValueMinutes;
-  data->mutex.unlock();
+  while (true) {
+    data->mutex.lock();
+    data->seconds =
+        std::chrono::duration_cast<chrono::seconds>(data->timer.elapsed_time())
+            .count();
+    data->mutex.unlock();
+    ThisThread::sleep_for(283ms);
+  }
 }
-
 void printClock(Data *data) {
-  data->mutex.lock();
-
-  printf("%i : %i\n", data->minutes, data->seconds);
-  data->mutex.unlock();
+  while (true) {
+    data->mutex.lock();
+    printf("%i : %i\n", data->minutes, data->seconds);
+    data->mutex.unlock();
+    ThisThread::sleep_for(89ms);
+  }
 }
-
 int main() {
+
   Data data;
-  Timer timer;
 
   Thread minuteThread;
   Thread secondThread;
   Thread printThread;
 
-  secondCounterArgs sca;
-  minuteCounterArgs mca;
+  data.timer.start();
 
-  timer.start();
-
-  minuteThread.start(callback(secondCounter, &sca));
-  secondThread.start(callback(minuteCounter, &mca));
+  minuteThread.start(callback(minuteCounter, &data));
+  secondThread.start(callback(secondCounter, &data));
   printThread.start(callback(printClock, &data));
 
-  while (true) {
-
-    secondCounter(&sca);
-    minuteCounter(&mca);
-    printClock(&data);
-
-    ThisThread::sleep_for(500ms);
-  }
+  /*minuteThread.set_priority(osPriorityAboveNormal);
+  secondThread.set_priority(osPriorityAboveNormal);
+  printThread.set_priority(osPriorityHigh7);*/
 }
