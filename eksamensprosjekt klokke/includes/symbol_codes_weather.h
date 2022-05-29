@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-
 std::vector<std::string> symbolCodes = {"clearsky",
+                                        "clearsky_day",
                                         "cloudy",
                                         "fair",
                                         "fog",
@@ -33,6 +33,7 @@ std::vector<std::string> symbolCodes = {"clearsky",
                                         "lightssleetshowersandthunder",
                                         "lightssnowshowersandthunder",
                                         "partlycloudy",
+                                        "partlycloudy_day",
                                         "rain",
                                         "rainandthunder",
                                         "rainshowers",
@@ -47,6 +48,7 @@ std::vector<std::string> symbolCodes = {"clearsky",
                                         "snowshowersandthunder"};
 
 std::vector<std::string> symbolCorrections = {"Clear sky",
+                                              "Clear sky",
                                               "Cloudy",
                                               "Fair",
                                               "Fog",
@@ -74,6 +76,7 @@ std::vector<std::string> symbolCorrections = {"Clear sky",
                                               "Light snow showers",
                                               "Light sleet showers and thunder",
                                               "Light snow showers and thunder",
+                                              "Partly cloudy",
                                               "Partly cloudy",
                                               "Rain",
                                               "Rain and thunder",
