@@ -1,6 +1,6 @@
 # example repository config (see 'hg help config' for more info)
 [paths]
-mbed-studio-cache = c:\Users\oleel\AppData\Local\Mbed Studio\library-cache\developer.mbed.org\teams\ST\code\X_NUCLEO_COMMON
+mbed-studio-cache = c:\Users\Mhwan\AppData\Local\Mbed Studio\library-cache\developer.mbed.org\teams\ST\code\X_NUCLEO_COMMON
 default = https://developer.mbed.org/teams/ST/code/X_NUCLEO_COMMON/
 
 # path aliases to other clones of this repo in URLs or filesystem paths
