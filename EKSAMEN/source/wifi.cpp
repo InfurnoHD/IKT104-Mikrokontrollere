@@ -45,7 +45,7 @@ std::string getRequest(NetworkInterface *network, const char *request,
   }
   printf("Complete message sent!\n");
 
-  static constexpr size_t RESPONSE_BUFFER_SIZE = 5000;
+  static constexpr size_t RESPONSE_BUFFER_SIZE = 20000;
   static char response[RESPONSE_BUFFER_SIZE];
 
   memset(response, 0, RESPONSE_BUFFER_SIZE);

@@ -104,16 +104,31 @@ int main() {
 
   std::string newsString = getRequest(network, newsRequest, address, newsHost);
 
-  int newsSLenght = newsString.length();
-  char newsChar[newsSLenght + 1];
-  strcpy(newsChar, newsString.c_str());
+  static const char *xml = strchr(newsString.c_str(), '<');
 
   tinyxml2::XMLDocument doc;
-  doc.Parse(newsChar);
 
-  const char *str = doc.RootElement()->FirstChildElement("channel")->FirstChildElement("title")->GetText();
-  printf("%s", str);
-  std::cout << str.c
+  doc.Parse(xml);
+
+  tinyxml2::XMLNode *pRSS = doc.RootElement();
+  tinyxml2::XMLNode *pChannel = pRSS->FirstChildElement("channel");
+  tinyxml2::XMLElement *pListElement = pChannel->FirstChildElement("item");
+  std::vector<std::string> vecList;
+
+  while (pListElement != nullptr) {
+
+    std::string title;
+
+    title = pListElement->FirstChildElement("title")->GetText();
+
+    vecList.push_back(title);
+
+    pListElement = pListElement->NextSiblingElement("item");
+  }
+
+  for (int i = 0; i < vecList.size(); i++) {
+    std::cout << vecList.at(i) << std::endl << std::endl;
+  }
 
   Thread menufunc;
   Thread menuswitch;

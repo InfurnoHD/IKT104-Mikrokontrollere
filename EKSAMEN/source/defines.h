@@ -19,11 +19,11 @@ const char unixRequest[] = "GET /UnixTime/tounix?date=now HTTP/1.1\r\n"
                            "Connection: close\r\n"
                            "\r\n";
 
-const char newsHost[] = "fetchrss.com";
+const char newsHost[] = "feeds.bbci.co.uk";
 
 const char newsRequest[] =
-    "GET /rss/6295444f152e0c3ff13552c362954474c3254205780471f2.xml "
-    "HTTP/1.1\r\n"
-    "Host: fetchrss.com\r\n"
+    "GET /news/world/rss.xml HTTP/1.1\r\n"
+    "Host: feeds.bbci.co.uk\r\n"
     "Connection: close\r\n"
     "\r\n";
+

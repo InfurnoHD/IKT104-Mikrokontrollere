@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="XSL_formatting" type="text/xsl" href="/shared/bsp/xsl/rss/nolsol.xsl"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[BBC News - World]]></title>
+        <description><![CDATA[BBC News - World]]></description>
+        <link>https://www.bbc.co.uk/news/</link>
+        <image>
+            <url>https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</url>
+            <title>BBC News - World</title>
+            <link>https://www.bbc.co.uk/news/</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Tue, 31 May 2022 21:16:36 GMT</lastBuildDate>
+        <copyright><![CDATA[Copyright: (C) British Broadcasting Corporation, see http://news.bbc.co.uk/2/hi/help/rss/4498287.stm for terms and conditions of reuse.]]></copyright>
+        <language><![CDATA[en-gb]]></language>
+        <ttl>15</ttl>
+        <item>
+            <title><![CDATA[Russian oil: EU agrees compromise deal on banning imports]]></title>
+            <description><![CDATA[The latest round of EU-wide sanctions excludes pipeline oil imports after Hungary opposed a total ban.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61638860?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61638860</guid>
+            <pubDate>Tue, 31 May 2022 13:50:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Shanghai lockdown: China eases Covid restrictions after two months]]></title>
+            <description><![CDATA[China's biggest city, a vital global trade hub, begins to relax crippling Covid restrictions.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-china-61647687?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-china-61647687</guid>
+            <pubDate>Tue, 31 May 2022 16:04:22 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Rain storm claims 100 lives in north-east Brazil]]></title>
+            <description><![CDATA[Landslides and torrents of mud triggered by rain demolish poor neighbourhoods and shanty towns.]]></description>
+            <link>https://www.bbc.co.uk/news/world-latin-america-61647690?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-latin-america-61647690</guid>
+            <pubDate>Tue, 31 May 2022 16:01:02 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Clinton lawyer cleared of lying to FBI over Trump]]></title>
+            <description><![CDATA[Michael Sussman stood charged with lying to the FBI and concealing ties to Hillary Clinton's campaign.]]></description>
+            <link>https://www.bbc.co.uk/news/world-us-canada-61654042?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-us-canada-61654042</guid>
+            <pubDate>Tue, 31 May 2022 21:06:19 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Nepal plane crash: Officials recover black box from wreckage]]></title>
+            <description><![CDATA[Hopes of any survivors were dashed as the remains of all 22 people onboard have also been found.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-61642218?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-61642218</guid>
+            <pubDate>Tue, 31 May 2022 09:23:54 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Iran lied about banned nuclear activity using stolen documents - Israel]]></title>
+            <description><![CDATA[Israel's PM shows what he says is proof that Iran deceived the world's nuclear agency.]]></description>
+            <link>https://www.bbc.co.uk/news/world-middle-east-61645243?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-middle-east-61645243</guid>
+            <pubDate>Tue, 31 May 2022 17:18:34 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Mexico's Maya train project stalls as legal battle drags]]></title>
+            <description><![CDATA[A judge delivers a fresh blow to the project which aims to link archaeological sites with beach resorts.]]></description>
+            <link>https://www.bbc.co.uk/news/world-latin-america-61631967?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-latin-america-61631967</guid>
+            <pubDate>Tue, 31 May 2022 10:25:36 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Champions League final: Uefa commissions independent report into scenes outside stadium]]></title>
+            <description><![CDATA[Uefa commissions an independent report into the scenes that delayed Saturday's Champions League final between Liverpool and Real Madrid.]]></description>
+            <link>https://www.bbc.co.uk/sport/football/61636938?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/football/61636938</guid>
+            <pubDate>Tue, 31 May 2022 06:22:28 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Australia election: PM Anthony Albanese secures majority government]]></title>
+            <description><![CDATA[The results in many seats had been unclear after a record vote for independents and minor parties.]]></description>
+            <link>https://www.bbc.co.uk/news/world-australia-61641853?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-australia-61641853</guid>
+            <pubDate>Tue, 31 May 2022 02:17:06 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Iran building collapse: Protesters turn on government over disaster]]></title>
+            <description><![CDATA[Nightly protests continue as Iranians seethe, a week after the deadliest building collapse in years.]]></description>
+            <link>https://www.bbc.co.uk/news/world-middle-east-61645241?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-middle-east-61645241</guid>
+            <pubDate>Tue, 31 May 2022 09:33:35 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sidhu Moose Wala: Murdered India singer hit by 24 bullets, says report]]></title>
+            <description><![CDATA[Video footage of Sidhu Moose Wala's car shows it was sprayed with bullets.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-india-61642596?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-india-61642596</guid>
+            <pubDate>Tue, 31 May 2022 10:16:51 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[BTS: 'K-Wave' arrives at White House with anti-Asian hate summit]]></title>
+            <description><![CDATA[K-pop stars BTS are taking a break from music to help the White House take on anti-Asian crimes.]]></description>
+            <link>https://www.bbc.co.uk/news/world-us-canada-61649521?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-us-canada-61649521</guid>
+            <pubDate>Tue, 31 May 2022 19:22:24 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA['I watched from afar Russia’s latest merciless assault on Severodonetsk']]></title>
+            <description><![CDATA[Quentin Sommerville describes relentless artillery bombardment in Donbas ahead of Russian forces entering Severodonetsk.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61634050?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61634050</guid>
+            <pubDate>Mon, 30 May 2022 16:18:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What do Russian papers say about sanctions?]]></title>
+            <description><![CDATA[As the EU announces new penalties, Steve Rosenberg looks at what Russian media has to say.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61647385?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61647385</guid>
+            <pubDate>Tue, 31 May 2022 10:51:13 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ukraine war: Refugee from Popasna spots looted possessions on Russian tank]]></title>
+            <description><![CDATA[The Ukrainian says she recognises items from her house on a Russian tank, including a new boiler.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61643533?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61643533</guid>
+            <pubDate>Tue, 31 May 2022 14:12:31 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How India’s first all-women newsroom is creating a media revolution]]></title>
+            <description><![CDATA[Khabar Lahariya is the first and only newsroom in India run entirely by women from marginalised backgrounds.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-61587884?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-61587884</guid>
+            <pubDate>Mon, 30 May 2022 23:04:20 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Borgen: How the Danish political drama has been 'reinvented']]></title>
+            <description><![CDATA[The series returns to Netflix this week, nearly a decade after its highly-praised original run.]]></description>
+            <link>https://www.bbc.co.uk/news/entertainment-arts-61591675?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/entertainment-arts-61591675</guid>
+            <pubDate>Mon, 30 May 2022 23:05:45 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sidhu Moose Wala: Controversial Indian rapper who made waves with his music]]></title>
+            <description><![CDATA[Shubhdeep Singh Sidhu, popularly known as Sidhu Moose Wala, was murdered in Punjab on Sunday.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-india-61548615?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-india-61548615</guid>
+            <pubDate>Tue, 31 May 2022 06:22:44 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sudan or Chad? Why a Darfur sultan regrets a twist of colonial fate]]></title>
+            <description><![CDATA[A traditional leader feels his people were dealt a cruel blow when absorbed into Sudan a century ago.]]></description>
+            <link>https://www.bbc.co.uk/news/world-africa-61426698?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-africa-61426698</guid>
+            <pubDate>Mon, 30 May 2022 23:02:15 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ukraine may soon get US long-range MLRS rocket system]]></title>
+            <description><![CDATA[The US looks set to send the weaponry, but Russia warns it would be a provocative escalation.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61627316?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61627316</guid>
+            <pubDate>Mon, 30 May 2022 17:20:41 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Champions League final: Fan videos of crowding and pepper spray]]></title>
+            <description><![CDATA[Footage from fans attending the Champions League final shows scenes of chaos.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61640126?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61640126</guid>
+            <pubDate>Mon, 30 May 2022 17:30:11 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The dangerous world of illegal mining in South Africa]]></title>
+            <description><![CDATA[BBC Africa Eye meets the migrants who risk everything to go deep underground in South Africa’s abandoned gold mines.]]></description>
+            <link>https://www.bbc.co.uk/news/world-africa-61609559?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-africa-61609559</guid>
+            <pubDate>Sun, 29 May 2022 23:04:01 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Death toll rises after Brazil landslides]]></title>
+            <description><![CDATA[Rescue efforts continue in the state of Pernambuco, with at least 79 people are known to have died.]]></description>
+            <link>https://www.bbc.co.uk/news/world-latin-america-61626912?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-latin-america-61626912</guid>
+            <pubDate>Mon, 30 May 2022 16:27:39 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ukraine's President Zelensky makes rare visit to Kharkiv frontline]]></title>
+            <description><![CDATA[Ukraine's President Zelensky walks around Kharkiv before meeting soldiers and presenting them with medals.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61627187?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61627187</guid>
+            <pubDate>Sun, 29 May 2022 17:23:10 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ukraine war: BBC interview with Russian ambassador to the UK]]></title>
+            <description><![CDATA[In a BBC interview, Andrei Kelin is shown CCTV footage of Russian soldiers committing alleged war crimes.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-61623278?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-61623278</guid>
+            <pubDate>Sun, 29 May 2022 11:59:06 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
