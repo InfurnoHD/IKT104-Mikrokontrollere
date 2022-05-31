@@ -1,8 +1,6 @@
-#include "DFRobot_RGBLCD.h"
+
 #include "json.hpp"
 #include "mbed.h"
-
-DFRobot_RGBLCD lcd(16, 2, D14, D15);
 
 void getRequest(NetworkInterface *network, const char *request,
                 SocketAddress address, const char *host) {
@@ -46,7 +44,7 @@ void getRequest(NetworkInterface *network, const char *request,
   }
   printf("Complete message sent!\n");
 
-  static constexpr size_t RESPONSE_BUFFER_SIZE = 15000;
+  static constexpr size_t RESPONSE_BUFFER_SIZE = 5000;
   static char response[RESPONSE_BUFFER_SIZE];
 
   memset(response, 0, RESPONSE_BUFFER_SIZE);
@@ -81,9 +79,8 @@ void getRequest(NetworkInterface *network, const char *request,
 }
 
 int main() {
+    
 
-  lcd.init();
-  lcd.clear();
 
   NetworkInterface *network = NetworkInterface::get_default_instance();
 
