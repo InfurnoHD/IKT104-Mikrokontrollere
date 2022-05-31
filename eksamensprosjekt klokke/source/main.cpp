@@ -3,15 +3,16 @@
 #include "HTS221_driver.h"
 #include "Thread.h"
 #include "defines.h"
+#include "humidtemp.h"
 #include "json.hpp"
 #include "mbed.h"
 #include "symbol_codes_weather.h"
 #include "wifi.h"
 
-
 DFRobot_RGBLCD lcd(16, 2, D14, D15);
 DevI2C i2c(PB_11, PB_10);
 HTS221Sensor sensor(&i2c);
+DigitalIn button(D0, PullUp);
 
 void parseJsonData(char chunks[]) {
 
@@ -68,6 +69,16 @@ int main() {
   lcd.on();
   lcd.init();
   lcd.clear();
+
+  int count = 0;
+  float temp = 0;
+  float hum = 0;
+
+  while (true) {
+    gethum(sensor, button, lcd, hum);
+    gettemp(sensor, button, lcd, temp);
+    printtemphum(count, temp, hum);
+  }
 
   while (true) {
 
