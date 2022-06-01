@@ -6,12 +6,14 @@
 
 struct data {
   Mutex mutex;
-  int buttonState;
+  int buttonState, calls;
   DFRobot_RGBLCD *lcd;
   float temp, hum, tempMet;
   std::string weather, news1, news2, news3;
+  Thread menuswitch;
 };
 
 void menuFunc(data *datainstance);
 
 void menuSwitch(data *datainstance);
+

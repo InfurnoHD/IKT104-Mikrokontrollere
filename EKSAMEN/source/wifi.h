@@ -4,4 +4,4 @@
 #include <string>
 
 std::string getRequest(NetworkInterface *network, const char *request,
-                SocketAddress address, const char *host);
+                       SocketAddress address, const char *host);

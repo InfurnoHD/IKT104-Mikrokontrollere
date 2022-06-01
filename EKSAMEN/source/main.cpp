@@ -10,6 +10,8 @@
 #include <cstring>
 #include <iostream>
 
+data datainstance;
+
 PwmOut buzzer(D6);
 
 DFRobot_RGBLCD lcd(16, 2, D14, D15);
@@ -31,9 +33,44 @@ void getTempHum(data *datainstance) {
   }
 }
 
-int main() {
+void parseXML(const char *xml) {
+  tinyxml2::XMLDocument doc;
 
-  data datainstance;
+  std::vector<std::string> vecList;
+
+  if (doc.Parse(xml) == tinyxml2::XML_SUCCESS) {
+
+    tinyxml2::XMLNode *pRSS = doc.RootElement();
+    tinyxml2::XMLNode *pChannel = pRSS->FirstChildElement("channel");
+    tinyxml2::XMLElement *pListElement = pChannel->FirstChildElement("item");
+
+    while (pListElement != nullptr) {
+
+      std::string title;
+
+      title = pListElement->FirstChildElement("title")->GetText();
+
+      vecList.push_back(title);
+
+      pListElement = pListElement->NextSiblingElement("item");
+    }
+
+    std::cout << "Parsed XML data!" << std::endl;
+
+  } else {
+    std::cout << "Unable to parse XML data!" << std::endl;
+  }
+
+  datainstance.news1 = vecList.at(0);
+  datainstance.news2 = vecList.at(1);
+  datainstance.news3 = vecList.at(2);
+
+  std::cout << datainstance.news1 << std::endl;
+  std::cout << datainstance.news2 << std::endl;
+  std::cout << datainstance.news3 << std::endl;
+}
+
+int main() {
 
   datainstance.buttonState = 1;
   datainstance.lcd = &lcd;
@@ -87,7 +124,7 @@ int main() {
 
   lcd.clear();
   lcd.printf("%s", epochTime.c_str());
-  ThisThread::sleep_for(5s);
+  ThisThread::sleep_for(100ms);
 
   std::string weatherString =
       getRequest(network, weatherRequest, address, weatherHost);
@@ -106,37 +143,20 @@ int main() {
 
   static const char *xml = strchr(newsString.c_str(), '<');
 
-  tinyxml2::XMLDocument doc;
-
-  doc.Parse(xml);
-
-  tinyxml2::XMLNode *pRSS = doc.RootElement();
-  tinyxml2::XMLNode *pChannel = pRSS->FirstChildElement("channel");
-  tinyxml2::XMLElement *pListElement = pChannel->FirstChildElement("item");
-  std::vector<std::string> vecList;
-
-  while (pListElement != nullptr) {
-
-    std::string title;
-
-    title = pListElement->FirstChildElement("title")->GetText();
-
-    vecList.push_back(title);
-
-    pListElement = pListElement->NextSiblingElement("item");
-  }
-
-  for (int i = 0; i < vecList.size(); i++) {
-    std::cout << vecList.at(i) << std::endl << std::endl;
-  }
+  parseXML(xml);
 
   Thread menufunc;
-  Thread menuswitch;
+  
   Thread getTempHumThread;
 
   menufunc.start(callback(menuFunc, &datainstance));
-  menuswitch.start(callback(menuSwitch, &datainstance));
+  datainstance.menuswitch.start(callback(menuSwitch, &datainstance));
   getTempHumThread.start(callback(getTempHum, &datainstance));
+
+  menufunc.set_priority(osPriorityAboveNormal);
+  datainstance.menuswitch.set_priority(osPriorityAboveNormal);
+
+
 
   while (true) {
     ThisThread::sleep_for(1s);

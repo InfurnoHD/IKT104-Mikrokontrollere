@@ -1,10 +1,11 @@
 #include "wifi.h"
 #include <cstdio>
-#include <string>
 #include <iostream>
+#include <string>
+
 
 std::string getRequest(NetworkInterface *network, const char *request,
-                SocketAddress address, const char *host) {
+                       SocketAddress address, const char *host) {
   nsapi_size_or_error_t result;
   TCPSocket socket;
   socket.set_timeout(500);
@@ -78,8 +79,7 @@ std::string getRequest(NetworkInterface *network, const char *request,
     printf("Closed socket!\n");
   }
 
-    std::string str(response);
+  std::string str(response);
 
-    return str;
-
+  return str;
 }

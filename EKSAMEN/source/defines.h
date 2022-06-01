@@ -1,6 +1,5 @@
 #pragma once
 
-
 const char weatherHost[] = "api.openweathermap.org";
 
 const char weatherRequest[] =
@@ -21,9 +20,7 @@ const char unixRequest[] = "GET /UnixTime/tounix?date=now HTTP/1.1\r\n"
 
 const char newsHost[] = "feeds.bbci.co.uk";
 
-const char newsRequest[] =
-    "GET /news/world/rss.xml HTTP/1.1\r\n"
-    "Host: feeds.bbci.co.uk\r\n"
-    "Connection: close\r\n"
-    "\r\n";
-
+const char newsRequest[] = "GET /news/world/europe/rss.xml HTTP/1.1\r\n"
+                           "Host: feeds.bbci.co.uk\r\n"
+                           "Connection: close\r\n"
+                           "\r\n";
