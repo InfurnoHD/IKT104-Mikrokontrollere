@@ -11,6 +11,7 @@ struct data {
   float temp, hum, tempMet;
   std::string weather, news1, news2, news3;
   Thread menuswitch;
+  std::string epochTime;
 };
 
 void menuFunc(data *datainstance);

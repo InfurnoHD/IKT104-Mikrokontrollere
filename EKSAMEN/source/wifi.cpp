@@ -69,7 +69,7 @@ std::string getRequest(NetworkInterface *network, const char *request,
     printf("Failed to read response!\n");
   }
 
-  printf("\nThe HTTP GET response:\n%s\n", response);
+  //printf("\nThe HTTP GET response:\n%s\n", response);
 
   result = socket.close();
 

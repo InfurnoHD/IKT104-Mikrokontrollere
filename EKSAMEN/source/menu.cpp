@@ -105,14 +105,14 @@ void menuSwitch(data *datainstance) {
         newschar = newschar1;
       }
 
-      char space[] = "                ";
+      char newsStr[] = "                ";
 
-      strcat(space, newschar);
+      strcat(newsStr, newschar);
 
-      size_t foo = strlen(space);
-      int cursor = 0;
+      size_t foo = strlen(newsStr);
+      int LCDCursor = 0;
 
-      int strlenght = strlen(space) + 1;
+      int strlenght = strlen(newsStr) + 1;
       datainstance->lcd->clear();
       datainstance->calls++;
       if (datainstance->calls < 30) {
@@ -130,23 +130,23 @@ void menuSwitch(data *datainstance) {
             break;
           }
 
-          if (cursor == (strlenght - 1)) {
-            cursor = 0;
+          if (LCDCursor == (strlenght - 1)) {
+            LCDCursor = 0;
           }
           datainstance->lcd->setCursor(0, 0);
-          if (cursor < (strlenght - 16)) {
-            for (int ichar = cursor; ichar < (cursor + 16); ichar++) {
-              datainstance->lcd->printf("%c", space[ichar]);
+          if (LCDCursor < (strlenght - 16)) {
+            for (int strChar = LCDCursor; strChar < (LCDCursor + 16); strChar++) {
+              datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           } else {
-            for (int ichar = cursor; ichar < (strlenght - 1); ichar++) {
-              datainstance->lcd->printf("%c", space[ichar]);
+            for (int strChar = LCDCursor; strChar < (strlenght - 1); strChar++) {
+              datainstance->lcd->printf("%c", newsStr[strChar]);
             }
-            for (int ichar = 0; ichar <= 16 - (strlenght - cursor); ichar++) {
-              datainstance->lcd->printf("%c", space[ichar]);
+            for (int strChar = 0; strChar <= 16 - (strlenght - LCDCursor); strChar++) {
+              datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           }
-          cursor++;
+          LCDCursor++;
           foo--;
           ThisThread::sleep_for(100ms);
         }

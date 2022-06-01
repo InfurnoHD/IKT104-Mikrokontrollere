@@ -64,10 +64,6 @@ void parseXML(const char *xml) {
   datainstance.news1 = vecList.at(0);
   datainstance.news2 = vecList.at(1);
   datainstance.news3 = vecList.at(2);
-
-  std::cout << datainstance.news1 << std::endl;
-  std::cout << datainstance.news2 << std::endl;
-  std::cout << datainstance.news3 << std::endl;
 }
 
 int main() {
@@ -119,12 +115,12 @@ int main() {
   std::string unixString = getRequest(network, unixRequest, address, unixHost);
 
   int positionUnix = unixString.find_first_of("\"");
-  std::string epochTime;
-  epochTime.assign(unixString, positionUnix + 1, 10);
+
+  datainstance.epochTime.assign(unixString, positionUnix + 1, 10);
 
   lcd.clear();
-  lcd.printf("%s", epochTime.c_str());
-  ThisThread::sleep_for(100ms);
+  lcd.printf("%s", datainstance.epochTime.c_str());
+  ThisThread::sleep_for(5s);
 
   std::string weatherString =
       getRequest(network, weatherRequest, address, weatherHost);
@@ -146,7 +142,7 @@ int main() {
   parseXML(xml);
 
   Thread menufunc;
-  
+
   Thread getTempHumThread;
 
   menufunc.start(callback(menuFunc, &datainstance));
@@ -155,8 +151,6 @@ int main() {
 
   menufunc.set_priority(osPriorityAboveNormal);
   datainstance.menuswitch.set_priority(osPriorityAboveNormal);
-
-
 
   while (true) {
     ThisThread::sleep_for(1s);
