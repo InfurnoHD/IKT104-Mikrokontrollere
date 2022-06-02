@@ -7,8 +7,7 @@
 #include <cstring>
 
 DigitalIn button1(D0, PullUp);
-DigitalIn button2(D1, PullDown);
-DigitalIn button3(D2, PullDown);
+DigitalIn buttonToggleAlarm(D4, PullUp);
 
 void menuSwitch(data *datainstance) {
 
@@ -26,6 +25,9 @@ void menuSwitch(data *datainstance) {
 
   int stringCounter = 0;
 
+  datainstance->toggleAlarmButtonPressed = false;
+  datainstance->pressCounterToggleAlarmButton = -1;
+
   datainstance->calls = 100;
 
   while (true) {
@@ -37,22 +39,56 @@ void menuSwitch(data *datainstance) {
       if (datainstance->calls < 30) {
         break;
       } else {
+
         datainstance->lcd->clear();
-        datainstance->lcd->printf("Case 1");
+        datainstance->lcd->printf("%s", datainstance->clockBuff);
+
+        if (datainstance->pressCounterToggleAlarmButton == 0) {
+          datainstance->lcd->clear();
+          datainstance->lcd->printf("%s", datainstance->clockBuff);
+          datainstance->lcd->setCursor(0, 1);
+          datainstance->lcd->printf("Alarm OFF %i:%i",
+                                    datainstance->alarm.tm_hour,
+                                    datainstance->alarm.tm_min);
+
+          datainstance->alarm.tm_sec = -2;
+        }
+
+        if (datainstance->pressCounterToggleAlarmButton == 1) {
+          datainstance->lcd->clear();
+          datainstance->lcd->printf("%s", datainstance->clockBuff);
+          datainstance->lcd->setCursor(0, 1);
+          datainstance->lcd->printf("Alarm     %i:%i",
+                                    datainstance->alarm.tm_hour,
+                                    datainstance->alarm.tm_min);
+          datainstance->alarm.tm_sec = 0;
+        }
+
         datainstance->calls = 0;
       }
 
-      break;
-    case 2:
+      std::cout << datainstance->pressCounterToggleAlarmButton << std::endl;
 
+      break;
+
+    case 2:
       datainstance->calls++;
-      if (datainstance->calls < 30) {
+
+      if (datainstance->calls < 2) {
         break;
       } else {
         datainstance->lcd->clear();
-        datainstance->lcd->printf("Case 2");
-        datainstance->calls = 0;
+        datainstance->lcd->printf("Set alarm: ");
+        if (datainstance->alarm.tm_hour < 10) {
+          datainstance->lcd->printf("0");
+        }
+        datainstance->lcd->printf("%i:", datainstance->alarm.tm_hour);
+        if (datainstance->alarm.tm_min < 10) {
+          datainstance->lcd->printf("0");
+        }
+        datainstance->lcd->printf("%i", datainstance->alarm.tm_min);
       }
+      datainstance->calls = 0;
 
       break;
     case 3:
@@ -85,6 +121,8 @@ void menuSwitch(data *datainstance) {
       break;
     case 5:
 
+      datainstance->breakButton = false;
+
       char *newschar;
 
       if (stringCounter > 2) {
@@ -116,6 +154,9 @@ void menuSwitch(data *datainstance) {
       datainstance->lcd->clear();
       datainstance->calls++;
       if (datainstance->calls < 30) {
+          if (datainstance->breakButton){
+              datainstance->buttonState = 1;
+          }
         break;
       } else {
 
@@ -135,14 +176,29 @@ void menuSwitch(data *datainstance) {
           }
           datainstance->lcd->setCursor(0, 0);
           if (LCDCursor < (strlenght - 16)) {
-            for (int strChar = LCDCursor; strChar < (LCDCursor + 16); strChar++) {
+            for (int strChar = LCDCursor; strChar < (LCDCursor + 16);
+                 strChar++) {
+              if (datainstance->breakButton) {
+                  datainstance->buttonState = 1;
+                break;
+              }
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           } else {
-            for (int strChar = LCDCursor; strChar < (strlenght - 1); strChar++) {
+            for (int strChar = LCDCursor; strChar < (strlenght - 1);
+                 strChar++) {
+              if (datainstance->breakButton) {
+                  datainstance->buttonState = 1;
+                break;
+              }
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
-            for (int strChar = 0; strChar <= 16 - (strlenght - LCDCursor); strChar++) {
+            for (int strChar = 0; strChar <= 16 - (strlenght - LCDCursor);
+                 strChar++) {
+              if (datainstance->breakButton) {
+                  datainstance->buttonState = 1;
+                break;
+              }
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           }
@@ -174,12 +230,29 @@ void menuFunc(data *datainstance) {
     if (!button1) {
       if (!buttonDown) {
 
+        datainstance->breakButton = true;
         datainstance->buttonState++;
         datainstance->calls = 100;
         buttonDown = true;
       }
     } else {
       buttonDown = false;
+    }
+
+    if (!buttonToggleAlarm) {
+      if (!datainstance->toggleAlarmButtonPressed) {
+
+        datainstance->pressCounterToggleAlarmButton++;
+        datainstance->toggleAlarmButtonPressed = true;
+
+        if (datainstance->pressCounterToggleAlarmButton >= 2) {
+
+          datainstance->pressCounterToggleAlarmButton = 0;
+        }
+      }
+
+    } else {
+      datainstance->toggleAlarmButtonPressed = false;
     }
 
     datainstance->mutex.unlock();

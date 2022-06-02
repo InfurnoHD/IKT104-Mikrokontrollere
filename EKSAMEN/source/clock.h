@@ -2,6 +2,8 @@
 
 #include "menu.h"
 
-void setClock(data *datainstance);
+void setInitialClock(data *datainstance);
 
-void setAlarm();
+void setClockAndAlarm(data *datainstance);
+
+void snooze(data *datainstance);

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-
 std::string getRequest(NetworkInterface *network, const char *request,
                        SocketAddress address, const char *host) {
   nsapi_size_or_error_t result;
@@ -69,7 +68,7 @@ std::string getRequest(NetworkInterface *network, const char *request,
     printf("Failed to read response!\n");
   }
 
-  //printf("\nThe HTTP GET response:\n%s\n", response);
+  // printf("\nThe HTTP GET response:\n%s\n", response);
 
   result = socket.close();
 

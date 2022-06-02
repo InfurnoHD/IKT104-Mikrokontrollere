@@ -1,5 +1,6 @@
 #include "DFRobot_RGBLCD.h"
 #include "HTS221Sensor.h"
+#include "clock.h"
 #include "defines.h"
 #include "json.hpp"
 #include "mbed.h"
@@ -11,8 +12,6 @@
 #include <iostream>
 
 data datainstance;
-
-PwmOut buzzer(D6);
 
 DFRobot_RGBLCD lcd(16, 2, D14, D15);
 
@@ -38,7 +37,10 @@ void parseXML(const char *xml) {
 
   std::vector<std::string> vecList;
 
-  if (doc.Parse(xml) == tinyxml2::XML_SUCCESS) {
+  
+  tinyxml2::XMLError errorID = doc.Parse(xml);
+
+  if (errorID == tinyxml2::XML_SUCCESS) {
 
     tinyxml2::XMLNode *pRSS = doc.RootElement();
     tinyxml2::XMLNode *pChannel = pRSS->FirstChildElement("channel");
@@ -57,13 +59,15 @@ void parseXML(const char *xml) {
 
     std::cout << "Parsed XML data!" << std::endl;
 
-  } else {
-    std::cout << "Unable to parse XML data!" << std::endl;
+    datainstance.news1 = vecList.at(0);
+    datainstance.news2 = vecList.at(1);
+    datainstance.news3 = vecList.at(2);
+
   }
 
-  datainstance.news1 = vecList.at(0);
-  datainstance.news2 = vecList.at(1);
-  datainstance.news3 = vecList.at(2);
+  else {
+    std::cout << "Unable to parse XML data: " << errorID << std::endl;
+  }
 }
 
 int main() {
@@ -80,7 +84,10 @@ int main() {
 
   lcd.init();
   lcd.clear();
-  lcd.printf("00:00");
+
+  setInitialClock(&datainstance);
+
+  ThisThread::sleep_for(2s);
 
   NetworkInterface *network = NetworkInterface::get_default_instance();
 
@@ -116,10 +123,23 @@ int main() {
 
   int positionUnix = unixString.find_first_of("\"");
 
-  datainstance.epochTime.assign(unixString, positionUnix + 1, 10);
+  std::string epochTimeString;
+
+  epochTimeString.assign(unixString, positionUnix + 1, 10);
+
+  int epochTime = stoi(epochTimeString);
+
+  epochTime += 7200;
+
+  datainstance.epochTime = (time_t)epochTime;
+
+  Thread clockThread;
+  clockThread.start(callback(setClockAndAlarm, &datainstance));
 
   lcd.clear();
-  lcd.printf("%s", datainstance.epochTime.c_str());
+  lcd.printf("Unix epoch time:");
+  lcd.setCursor(0, 1);
+  lcd.printf("%i", datainstance.epochTime);
   ThisThread::sleep_for(5s);
 
   std::string weatherString =
@@ -154,7 +174,5 @@ int main() {
 
   while (true) {
     ThisThread::sleep_for(1s);
-
-    // insert counter :D
   }
 }
