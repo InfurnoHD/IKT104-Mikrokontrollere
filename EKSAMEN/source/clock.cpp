@@ -49,6 +49,9 @@ void setClockAndAlarm(data *datainstance) {
             datainstance->alarm.tm_hour = -1;
           }
           datainstance->alarm.tm_hour += 1;
+          if (datainstance->pressCounterToggleAlarmButton == -1) {
+            datainstance->pressCounterToggleAlarmButton = 1;
+          }
           button2Down = true;
         }
       } else {
@@ -64,6 +67,9 @@ void setClockAndAlarm(data *datainstance) {
             datainstance->alarm.tm_min = -1;
           }
           datainstance->alarm.tm_min += 1;
+          if (datainstance->pressCounterToggleAlarmButton == -1) {
+            datainstance->pressCounterToggleAlarmButton = 1;
+          }
           button3Down = true;
         }
       } else {
@@ -124,7 +130,7 @@ void snooze(data *datainstance) {
     chronoCount = std::chrono::duration_cast<chrono::seconds>(
                       datainstance->timer.elapsed_time())
                       .count();
-    if (chronoCount >= 300) {
+    if (chronoCount >= 15) {
       datainstance->soundAlarm = true;
       datainstance->timer.reset();
       datainstance->timer.stop();

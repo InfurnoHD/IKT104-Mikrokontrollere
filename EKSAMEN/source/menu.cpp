@@ -56,20 +56,34 @@ void menuSwitch(data *datainstance) {
           datainstance->lcd->clear();
           datainstance->lcd->printf("%s", datainstance->clockBuff);
           datainstance->lcd->setCursor(0, 1);
-          datainstance->lcd->printf("Alarm OFF %i:%i",
-                                    datainstance->alarm.tm_hour,
-                                    datainstance->alarm.tm_min);
+          datainstance->lcd->printf("Alarm OFF ");
+          if (datainstance->alarm.tm_hour < 10) {
+            datainstance->lcd->printf("0");
+          }
+          datainstance->lcd->printf("%i:", datainstance->alarm.tm_hour);
+          if (datainstance->alarm.tm_min < 10) {
+            datainstance->lcd->printf("0");
+          }
+          datainstance->lcd->printf("%i", datainstance->alarm.tm_min);
 
-          datainstance->alarm.tm_sec = -2;
+          datainstance->alarm.tm_sec = 0;
         }
+        datainstance->alarm.tm_sec = -2;
 
         if (datainstance->pressCounterToggleAlarmButton == 1) {
           datainstance->lcd->clear();
           datainstance->lcd->printf("%s", datainstance->clockBuff);
           datainstance->lcd->setCursor(0, 1);
-          datainstance->lcd->printf("Alarm     %i:%i",
-                                    datainstance->alarm.tm_hour,
-                                    datainstance->alarm.tm_min);
+          datainstance->lcd->printf("Alarm     ");
+          if (datainstance->alarm.tm_hour < 10) {
+            datainstance->lcd->printf("0");
+          }
+          datainstance->lcd->printf("%i:", datainstance->alarm.tm_hour);
+          if (datainstance->alarm.tm_min < 10) {
+            datainstance->lcd->printf("0");
+          }
+          datainstance->lcd->printf("%i", datainstance->alarm.tm_min);
+
           datainstance->alarm.tm_sec = 0;
         }
 
@@ -81,10 +95,14 @@ void menuSwitch(data *datainstance) {
       // Case 2 is the screen where the alarm is set and printed to the lcd
     case 2:
       datainstance->calls++;
+      datainstance->breakButton = false;
 
       if (datainstance->calls < 2) {
         break;
       } else {
+        if (datainstance->breakButton) {
+          goto exit2;
+        }
         datainstance->lcd->clear();
         datainstance->lcd->printf("Set alarm: ");
         if (datainstance->alarm.tm_hour < 10) {
@@ -95,8 +113,10 @@ void menuSwitch(data *datainstance) {
           datainstance->lcd->printf("0");
         }
         datainstance->lcd->printf("%i", datainstance->alarm.tm_min);
+        datainstance->calls = 0;
+      exit2:
+        break;
       }
-      datainstance->calls = 0;
 
       break;
 
@@ -161,7 +181,7 @@ void menuSwitch(data *datainstance) {
       int strlenght = strlen(newsStr) + 1;
       datainstance->lcd->clear();
       datainstance->calls++;
-      if (datainstance->calls < 30) {
+      if (datainstance->calls < 1) {
         if (datainstance->breakButton) {
           datainstance->buttonState = 1;
         }
@@ -174,9 +194,8 @@ void menuSwitch(data *datainstance) {
         datainstance->lcd->clear();
         while (foo != 0) {
           ThisThread::sleep_for(200ms);
-          if (!button1) {
-            datainstance->buttonState = 1;
-            break;
+          if (datainstance->breakButton) {
+            goto exit5;
           }
 
           if (LCDCursor == (strlenght - 1)) {
@@ -187,26 +206,26 @@ void menuSwitch(data *datainstance) {
             for (int strChar = LCDCursor; strChar < (LCDCursor + 16);
                  strChar++) {
               if (datainstance->breakButton) {
-                datainstance->buttonState = 1;
-                break;
+                goto exit5;
               }
+
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           } else {
             for (int strChar = LCDCursor; strChar < (strlenght - 1);
                  strChar++) {
               if (datainstance->breakButton) {
-                datainstance->buttonState = 1;
-                break;
+                goto exit5;
               }
+
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
             for (int strChar = 0; strChar <= 16 - (strlenght - LCDCursor);
                  strChar++) {
               if (datainstance->breakButton) {
-                datainstance->buttonState = 1;
-                break;
+                goto exit5;
               }
+
               datainstance->lcd->printf("%c", newsStr[strChar]);
             }
           }
@@ -218,7 +237,10 @@ void menuSwitch(data *datainstance) {
         datainstance->calls = 0;
         break;
       }
+    exit5:
+      break;
     }
+
     ThisThread::sleep_for(100ms);
   }
 }
@@ -229,7 +251,7 @@ void menuFunc(data *datainstance) {
   datainstance->buttonState = 1;
   bool buttonDown = false;
   while (true) {
-    datainstance->mutex.lock();
+
     if (datainstance->buttonState > 5) {
       datainstance->buttonState = 1;
     }
@@ -257,7 +279,6 @@ void menuFunc(data *datainstance) {
       datainstance->toggleAlarmButtonPressed = false;
     }
 
-    datainstance->mutex.unlock();
     ThisThread::sleep_for(10ms);
   }
 }

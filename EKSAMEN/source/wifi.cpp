@@ -46,7 +46,7 @@ std::string getRequest(NetworkInterface *network, const char *request,
   }
 
   // Declaring buffer and setting memory
-  static constexpr size_t RESPONSE_BUFFER_SIZE = 16000;
+  static constexpr size_t RESPONSE_BUFFER_SIZE = 15000;
   static char response[RESPONSE_BUFFER_SIZE];
   memset(response, 0, RESPONSE_BUFFER_SIZE);
   int remaining_bytes = RESPONSE_BUFFER_SIZE;

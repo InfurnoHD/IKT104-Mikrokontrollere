@@ -87,7 +87,11 @@ int main() {
   Thread clockThread;
   clockThread.start(callback(setClockAndAlarm, &datainstance));
 
-  // Sending HTTP GET request to get weather
+  // Sending HTTP GET request to get weather. We used latitude and longitude as
+  // parameters in the HTTP syntax to ensure we get weather for the same
+  // location (Grimstad) each time. The reasoning for this was because the use
+  // of IP location is not as reliable, especially on public networks due to ISP
+  // location
   std::string weatherString =
       getRequest(network, weatherRequest, address, weatherHost);
   int weatherSLenght = weatherString.length();
